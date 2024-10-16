@@ -3,7 +3,7 @@ import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
 import Header from "./Components/Header";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import axios  from "axios";
 const MyContext  = createContext();
 function App() {
@@ -14,13 +14,13 @@ function App() {
   },[]);
 
   const getCountry=async(url)=>{
-    const responsive = await axios.get(url).then((res)=>{
-      setCountryList(res.data.data    )
-      console.log(res.data.data)
-    })
+    const response = await axios.get(url);
+      setCountryList(response.data.data)
+      console.log(response.data.data)
+    
   } 
   const values={
-countryList
+
   }
   return (
     <BrowserRouter>

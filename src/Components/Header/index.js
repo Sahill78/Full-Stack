@@ -13,6 +13,7 @@ import { useContext } from "react";
 const Header = () => {
 
   const context= useContext(MyContext);
+  const countryList = context.countryList || [];
   return (
     <>
       <div className="headerWrapper">
@@ -33,9 +34,7 @@ const Header = () => {
                 </Link>
               </div>
               <div className="col-sm-10 d-flex align-items-center part2 ">
-{
-  context.countryList.length!==0 &&  <CountryDropdown />
-}              
+              {countryList.length !== 0 && <CountryDropdown />}              
  
                 {/*  Header Search work starts from here */}
                 <SearchBox />
